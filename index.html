@@ -1,0 +1,181 @@
+<html>
+<head>
+	<title>advanture</title>
+	  <meta charset="UTF-8">
+	<script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+	<script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+			  integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+			  crossorigin="anonymous"></script>
+	<script type="text/javascript">
+   	 AFRAME.registerComponent('log', {
+	  schema: {type: 'string'},
+	  init: function () {
+    		var sceneEl = document.querySelector('a-scene');
+    		var s = document.querySelector('a-sky');
+			var els = sceneEl.querySelectorAll('.x');
+			var elstx = sceneEl.querySelectorAll('.tx');
+			var sound = sceneEl.querySelector('a-sound');
+
+			var z;
+			for (var i = 0; i < els.length; i++) {
+				els[i].addEventListener('click',function (event) {
+				 func(event);
+				 })	    				
+			}//for1
+			function func(e)
+			{
+			 s.setAttribute('src',e.target.id);
+			 var h = document.querySelector('.'+e.target.id.substring(1));
+			 /*h.setAttribute('bmfont-text','text','mahajan');*/
+			 for (var j = 0; j < elstx.length; j++) {
+			 	elstx[j].setAttribute('bmfont-text','opacity','0');
+			 }
+			 h.setAttribute('bmfont-text','opacity','1');
+			/* console.log(sound.getAttribute('src','url');*/
+			 if(sound.getAttribute('src','url')==='src: url(my.mp3)'){
+			 	 sound.setAttribute('sound','src','url(p.mp3)');
+			 }
+			 else if(sound.getAttribute('src','url')==='src: url(p.mp3)'){
+			 	sound.setAttribute('sound','src','url(my.mp3)');
+			 }			
+			}
+     	}//init function
+     });//register component
+</script>
+
+<body>
+<!-- <p><marquee><p id = "p">PepalCia</p></marquee></p> -->
+<a-scene log="h">
+	 <a-assets>
+	 <img id="my-image" src="a.jpg">   
+	  <img id="my-image1" src="a2.jpg"> 
+	   <img id="my-image2" src="a3.jpg">  
+	   <img id="my-image3" src="a1.jpg"> 
+	   <img id="my-image4" src="a4.jpg">
+	 </a-assets>
+		<a-sky src = "sky.jpg" ></a-sky>
+		<!-- <a-plane  bmfont-text="text: Harshit Mahajan! ;color:white" color = "black" position = "0 1 -4" width = "4" height = "4"> -->
+
+<!-- text -->		
+		  <a-entity position="0 0 -4"  bmfont-text="text:Welcome; color: white ; opacity:0" class = "my-image tx" rotation = "0 0 0" scale="3 3 3">
+		<!--  <a-animation attribute = "position" to = "0 0 -2" repeat = "indefinite" duration = "1000" direction = "alternate" ></a-animation> -->
+		  </a-entity>
+		  <a-entity position="5 0 -4"  bmfont-text="text: taj hotel; color: white ; opacity:0" class = "my-image1 tx" rotation = "0 0 0" scale="3 3 3">
+		  <!-- <a-animation attribute = "position" to = "5 0 -2" repeat = "indefinite" duration = "1000" direction = "alternate" ></a-animation> -->
+		  </a-entity>
+		  <a-entity position="-5 0 -4"  bmfont-text="text: taj mahal; color: white ; opacity:0" class = "my-image2 tx" rotation = "0 0 0" scale="3 3 3"></a-entity>
+		  <a-entity position="-9 0 -4"  bmfont-text="text: Great pyramid of giza; color: white ; opacity:0" class = "my-image3 tx" scale="3 3 3" rotation = "0 0 0"></a-entity>
+		  <a-entity position="9 0 -4"  bmfont-text="text:Shah I Zinda uzbekistan; color: white ; opacity:0" class = "my-image4 tx" scale="3 3 3" rotation = "0 0 0"></a-entity>
+
+<!-- images -->
+
+
+
+
+		 <a-image id="#my-image"  class = "x" src="#my-image" position = "0 1 -4" >
+		  <a-animation attribute = "position" to = "0 1 -3" repeat = "indefinite" duration = "1000" direction = "alternate" ></a-animation> 
+
+  <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+  <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
+  <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+
+
+
+		 </a-image> 
+		 <a-image id="#my-image1"  class = "x" src="#my-image1" position = "5 1 -4" >
+			 <a-animation attribute = "position" to = "5 1.3 -4" repeat = "indefinite" duration = "1500" direction = "alternate" ></a-animation>   <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+  <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
+  <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+		 </a-image> 
+		 <a-image id="#my-image2"  class = "x" src="#my-image2" position = "-5 1 -4" rotation ="0 0 0" >
+		 <a-animation attribute = "rotation" to = "0 0 45" repeat = "indefinite" duration = "1000" direction = "alternate" ></a-animation>
+		   <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+  <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
+  <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+		 </a-image> 
+		 <a-image id="#my-image3"  class = "x" src="#my-image3" rotation ="0 0 0"  position = "-9 1 -4" >
+		 <a-animation attribute = "rotation" to = "0 45 0" repeat = "indefinite" duration = "1000" direction = "alternate" ></a-animation>
+		   <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+  <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
+  <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+		  </a-image> 
+		 <a-image id="#my-image4"  class = "x" rotation ="0 0 0"  src="#my-image4" position = "9 1 -4" >
+		 <a-animation attribute = "rotation" to = "45 0 0" repeat = "indefinite" duration = "1000" direction = "alternate" ></a-animation>
+		   <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+  <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
+  <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+		 </a-image> 
+
+
+
+<a-plane  position = "0 -0.2 -4" rotation = "-90 0 0" color = "black" width = "20"></a-plane>
+
+
+  <a-box src="gola1.jpg"  rotation="0 45 45" position = "5 5 -7"scale="2 2 2">
+<a-animation attribute = "position" to = "5 5.5 -7" repeat = "indefinite" duration = "1000" direction = "alternate" ></a-animation>
+  <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+  <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
+  <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+</a-box>
+<a-torus-knot src="gola1.jpg" arc="90" p="2" q="5" position = "-5 5 -7" radius="1" radius-tubular="0.1" rotation = "0 0 0">
+<a-animation attribute = "rotation" to = "0 0 180" repeat = "indefinite" duration = "1000" direction = "alternate" ></a-animation>
+ <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+  <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+  <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+</a-torus-knot>
+
+<a-octahedron src="octa.jpg"  radius="1" position = "-6 3 2">
+<a-animation attribute = "rotation" to = "90 180 180" repeat = "indefinite" duration = "2000" direction = "alternate" ></a-animation>
+
+ <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+  <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+  <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+</a-octahedron>
+
+<a-cylinder src="cyli.jpg" position = "0 -3 -3" scale = ".5 .5 .5" segments-radial="8">
+<a-animation attribute = "segments-radial" to = "1" repeat = "indefinite" duration = "2000" direction = "alternate" ></a-animation>
+
+ <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+  <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+  <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+</a-octahedron>
+</a-cylinder>
+
+
+<!-- 
+<a-sphere color="yellow" src="eart.jpg" radius="5" direction = "alternate" repeat = "indefinite" position = "12 5 4" rotation = "0 0 0">
+  <a-animation attribute="rotation"  duration="2000" to="0 180 45"></a-animation>
+ <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+  <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+  <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+</a-sphere>
+
+ -->
+
+
+ <a-entity position="-13 8 -2"  bmfont-text="text:PePalCia; color: black ; opacity:1" class = "my-image tx" rotation = "0 0 0" scale="3 3 3">
+ <a-animation attribute = "rotation" to = "12 90 180" repeat = "9" duration = "2000" direction = "alternate" ></a-animation>
+
+ <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+  <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+  
+</a-entity>
+
+<a-dodecahedron src="gola2.jpg" radius=".7" position = "6 3 2">
+ <a-animation attribute = "rotation" to = "12 90 180" repeat = "indefinite" duration = "3000" direction = "alternate" ></a-animation>
+
+ <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+  <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+   <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+</a-dodecahedron>
+
+
+		<a-sound src="src: url(my.mp3)" autoplay="true" position="0 2 5"></a-sound>
+		 <a-camera position = "0 1.6 7">
+		    <a-cursor id="cursor">
+		    </a-cursor>
+		 </a-camera>
+</a-scene>
+</body>
+</html>
